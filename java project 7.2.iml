@@ -1,11 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<module type="JAVA_MODULE" version="4">
-  <component name="NewModuleRootManager" inherit-compiler-output="true">
-    <exclude-output />
-    <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-    </content>
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="sourceFolder" forTests="false" />
-  </component>
-</module>
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+
+        int n = 4, m = 4;
+        double[][] a = new double[n][m];
+        Random r = new Random();
+
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < m; j++) {
+                a[i][j] = r.nextDouble() * 10;
+                if (i % 2 != 0 && j % 2 != 0)
+                    a[i][j] = Math.sqrt(a[i][j]);
+            }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++)
+                System.out.printf("%.2f ", a[i][j]);
+            System.out.println();
+        }
+    }
+}
